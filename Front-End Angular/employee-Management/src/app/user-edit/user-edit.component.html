@@ -1,0 +1,225 @@
+<app-user-sidebar></app-user-sidebar>
+
+<div class="ngx col-3">
+    <div class="form-group">
+        <label>Select your ID<span class="text-danger">*</span></label>
+        <ngx-select-dropdown [config]=" config_employee" [options]="employeeID_data"
+           (change)="onChangeemp($event)" [multiple]="false" >
+        </ngx-select-dropdown>
+    </div>
+</div>
+
+<br>
+
+<div class="container mat-elevation-z8">
+    <h2 class="well">Registration Form</h2>
+    <div class="row">
+      <form [formGroup]="EditEmployeeForm" (ngSubmit)="onUpdateFormSubmit()">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Enter Full name.." formControlName="name" class="form-control" />
+  
+            </div>
+            <div class="col-sm-6 form-group">
+              <label>Email</label>
+              <input type="email" placeholder="Enter Email" formControlName="email" class="form-control" />
+            </div>
+          </div>
+          <br>
+  
+          <label>Address</label>
+          <textarea placeholder="Enter Address Here.." rows="2" formControlName="address" class="form-control"></textarea>
+  
+          <br>
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>Gender</label>
+              <!-- <input type="text" placeholder="Enter City Name Here.." formControlName="gender" class="form-control" /> -->
+              <select type="number" class="form-control" placeholder="Select the Gender "
+                                              formControlName="gender" class="form-control" >
+                                              
+                                              <option>Male</option>
+                                              <option>Female</option>
+                                              <option>Prefer not to say</option>
+                                              
+                                          </select>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>DoB</label>
+              <input type="date" placeholder="Enter State Name Here.." formControlName="dob" class="form-control" />
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>mobile</label>
+              <input type="number" placeholder="Enter Zip Code Here.." formControlName="mobile" class="form-control" />
+  
+            </div>
+          </div>
+          <br>
+  
+          <div class="row">
+  
+            <div class="col-sm-4 form-group">
+              <label>Alternate Email</label>
+              <input type="email" placeholder="Enter Phone Number Here.." formControlName="alternateEmail"
+                class="form-control" />
+  
+            </div>
+  
+            <div class="col-sm-6 form-group">
+              <label>Password</label>
+              <input type="password" placeholder="Enter Email Address Here.." formControlName="password"
+                class="form-control" />
+            </div>
+  
+  
+          </div>
+          <br>
+          <br>
+          <mat-divider></mat-divider>
+          <!-- <div class="col-md-4 form-group"> -->
+          <h2>Education</h2>
+  
+          <!-- <div class="row">
+            <div class="col-sm-4 form-group">
+            <select class="floating-input" formControlName="sslcStatus"  (change)="onChange($event)">
+              <option value="" disabled selected hidden>Choose the sslc status</option>
+              <option  value="1">yes</option>
+              <option  value="2">No</option>
+              
+            </select>
+          </div>
+            </div> -->
+            <!-- <div class="col-sm-4 form-group">
+              <label></label>
+              <select type="number" class="form-control" placeholder="Select the Gender "
+                 formControlName="sslcStatus" class="form-control" (change)="onChange($event)" >
+              <option value="" disabled selected hidden>Choose the sslc status</option>
+              <option  value="1">yes</option>
+              <option  value="2">No</option>
+              
+                                              
+                                              
+             </select>
+            </div>
+            <br> -->
+            
+          <div class="row">
+            <div class="col-sm-3 form-group">
+              <label></label>
+              <select type="number" class="form-control" placeholder="Select the Gender "
+                 formControlName="sslcStatus" class="form-control"  >
+              <option value="" disabled selected hidden>Choose the sslc status</option>
+              <option  value="1">yes</option>
+              <option  value="2">No</option>
+              
+                                              
+                                              
+             </select>
+            </div>
+  
+            <div class="col-sm-5 form-group">
+              <label>SSLC School Name</label>
+              <input type="text" placeholder="Enter your School Name" formControlName="sslc"  class="form-control" />
+            </div>
+            <div class="col-sm-2 form-group">
+              <label>Date of Passing</label>
+              <input type="date" placeholder="Date of Passing" formControlName="sslcmonth" class="form-control" />
+            </div>
+            <div class="col-sm-2 form-group">
+              <label>Percentage of Mark</label>
+              <input type="number" placeholder="Score Percentage" formControlName="sslcCgpa" class="form-control" />
+            </div>
+          </div>
+          <br>
+          
+          
+          <div class="row">
+            <div class="col-sm-3 form-group">
+              <label></label>
+              <select type="number" class="form-control" placeholder="Select the Gender "
+                 formControlName="hscStatus" class="form-control"  >
+              <option value="" disabled selected hidden>Choose the sslc status</option>
+              <option  value="1">yes</option>
+              <option  value="2">No</option>                               
+             </select>
+             </div>
+            <div class="col-sm-5 form-group">
+              <label>HSC School Name</label>
+              <input type="text" placeholder="Enter your School Name" formControlName="hsc" class="form-control" />
+            </div>
+  
+            <div class="col-sm-2 form-group">
+              <label>Date Of Passing</label>
+              <input type="date" placeholder="Date of Passing" formControlName="hscmonth" class="form-control" />
+            </div>
+            <div class="col-sm-2 form-group">
+              <label>Percentage of Mark</label>
+              <input type="number" placeholder="Score Percentage" formControlName="hscCgpa" class="form-control" />
+            </div>
+          </div>
+  
+          <br>
+  
+          <div class="row">
+            <div class="col-sm-3 form-group">
+              <label></label>
+              <select type="number" class="form-control" placeholder="Select the Gender "
+                 formControlName="degreeStatus" class="form-control" >
+              <option value="" disabled selected hidden>Choose the sslc status</option>
+              <option  value="1">yes</option>
+              <option  value="2">No</option>                               
+             </select>
+             </div>
+            <div class="col-sm-5 form-group">
+              <label>Collage Name</label>
+              <input type="text" placeholder="Enter your School Name" formControlName="degree" class="form-control" />
+            </div>
+  
+            <div class="col-sm-2 form-group">
+              <label>Date Of Passing</label>
+              <input type="date" placeholder="Date of Passing" formControlName="degreemonth" class="form-control" />
+            </div>
+            <div class="col-sm-2 form-group">
+              <label>CGPA</label>
+              <input type="number" placeholder="Score Percentage" formControlName="degreeCgpa" class="form-control" />
+            </div>
+            <br>
+            <br>
+            <br>
+            <mat-divider></mat-divider>
+            <h2>Work Experience</h2>
+  
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-sm-4 form-group">
+                <label>Compony Name</label>
+                <input type="text" placeholder="Enter the previous employer" formControlName="cmpName"
+                  class="form-control" />
+              </div>
+  
+              <div class="col-sm-4 form-group">
+                <label>Total Experienc (In Months)</label>
+                <input type="number" placeholder="Total Number of Months" formControlName="TotalExp"
+                  class="form-control" />
+              </div>
+              <div class="col-sm-4 form-group">
+                <label>Technology</label>
+                <input type="text" placeholder="Technology" formControlName="Tech" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <button type="submit" class="btn btn-lg btn-info " style="align-items: center;">Update Employee Details</button>
+          <br>
+        </div>
+        <br>
+      </form>
+    </div>
+    
+  </div>
+
+

@@ -1,0 +1,34 @@
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: rgb(131, 7, 7);
+    font-size: small;
+}
+
+.contenttop{
+    height: 100px;
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: rgb(131, 7, 7);
+    font-size: small; 
+}
+
+.ng2{
+   background-color: rgba(174, 0, 255, 0.096);
+  
+}

@@ -1,0 +1,39 @@
+<!-- <p>leaves works!</p> -->
+<app-adminsidebar></app-adminsidebar>
+<div>
+    <form [formGroup]="LeaveUpdateForm" (ngSubmit)="onSubmit()">
+<div class="contenttop mat-elevation-z8">
+   
+        <div class="col-4">     
+            <div class="form-group">
+                <label>Leaves Requests<span class="text-danger">*</span></label>
+                <ngx-select-dropdown [config]=" config_leave" [options]="leavesdata"
+                    (change)="onChangeLeave($event)" [multiple]="false" >
+                 </ngx-select-dropdown>
+            </div>
+        </div>
+        <div class="col-4 " style='padding-left: 10px;'>
+            <label>Leave Type</label>
+            <select type="number" class="form-control" placeholder="Select the Gender "
+                formControlName="LeaveStatus" class="form-control" >
+                <option></option>
+                <option>Pending</option>
+                <option>Pending for Aproval</option>
+                <option>on Progress</option>
+                <option>Aproved</option>
+                <option>Rejected</option>
+            </select>                          
+      </div>
+     <div class="button">
+      <button type="submit" class="btn btn-md btn-info "   >Update Employee Details</button>
+    </div>
+</div>
+</form>   
+</div>
+
+
+<div class="content mat-elevation-z8">
+    <div class="ng2">
+<ng2-smart-table [settings]="settings" [source]="leavesdata"></ng2-smart-table>
+</div>
+</div>

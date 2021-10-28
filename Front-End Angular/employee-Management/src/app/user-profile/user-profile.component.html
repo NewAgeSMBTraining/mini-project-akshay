@@ -1,0 +1,35 @@
+<app-user-sidebar></app-user-sidebar>
+<h1>
+   
+
+</h1>
+
+
+<aside class="profile-card">
+  
+    <header>
+      
+      <!-- here’s the avatar -->
+      <a href="http://metrothemes.me">
+        <img src="https://microlancer.lancerassets.com/v2/avatars/74/c1d56008ae11e5985a9fe42fd62f9f/medium_metro-logo-2.jpg">
+      </a>
+  
+      <!-- the username -->
+      <h1>welcome  {{profileData.user.name}} </h1>
+      
+      <!-- and role or location -->
+      <h2> {{profileData.user.email}}</h2>
+      
+    </header>
+    
+    <!-- bit of a bio; who are you? -->
+    <div class="profile-bio">
+        <p>name : {{profileData.user.name}}</p>
+      <p>Gender: {{profileData.user.gender}}</p>
+      <p>mobile: {{profileData.user.mobile}}</p>
+      <p>Address: {{profileData.user.address}}</p>
+    
+    </div>
+    
+    <!-- some social links to show off -->
+  
