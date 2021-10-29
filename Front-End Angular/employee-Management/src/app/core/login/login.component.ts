@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['/allemployee/asd']);
         this.toster.showSuccess('Admin Login success')
       }else{
+        localStorage.setItem('email',this.LoginForm.value.email)
       this._router.navigate(['/userprofile']);
       this.toster.showSuccess('User Login success')
 

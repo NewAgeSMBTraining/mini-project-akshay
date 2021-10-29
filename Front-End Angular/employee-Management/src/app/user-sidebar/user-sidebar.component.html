@@ -1,4 +1,5 @@
 <mat-toolbar class="mat-elevation-z8">
+    
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">
             menu
@@ -7,8 +8,14 @@
             close
         </mat-icon>
     </button>
+    
     Welcom User
+    <div class="btn-text-right">
+        <button type="button" class="btn btn-primary" (click)="logout()">Logout</button>
+  </div>
+
   </mat-toolbar>
+  
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
         <img class="avatar mat-elevation-z8" src="https://pluspng.com/img-png/user-png-icon-young-user-icon-2400.png" />
         <h4 class="name">User</h4>

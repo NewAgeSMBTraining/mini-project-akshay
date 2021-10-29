@@ -14,4 +14,10 @@ export class UserSidebarComponent implements OnInit {
     
   }
 
+
+  logout(){
+    localStorage.clear()
+    window.location.reload();
+  }
+
 }

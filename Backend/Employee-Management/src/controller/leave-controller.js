@@ -11,6 +11,8 @@ exports.create =(req,res)=>{
     }
     //new Leave request
     const leavesreq = new LeaveData({
+        email:req.body.email,
+        username:req.body.username,
         subject:req.body.subject,
         leaveType:req.body.leaveType,
         reason:req.body.reason,

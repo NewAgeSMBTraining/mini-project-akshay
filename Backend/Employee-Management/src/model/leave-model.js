@@ -24,6 +24,12 @@ var LeaveSchema = new mongoose.Schema({
     },
     LeaveStatus:{
       type:String
+  },
+  username:{
+    type:String
+  },
+  email:{
+    type:String
   }
    
   });

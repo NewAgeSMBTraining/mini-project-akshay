@@ -15,6 +15,7 @@ export class AddLeaveRequestComponent implements OnInit {
     private LeaveService:LeavesService,
     private toster:TosterService) {
     this.LeaveReqForm = this.formBuilder.group({
+      email:new FormControl(''),
       subject: new FormControl('', []),
       leaveType: new FormControl('', []),
       reason: new FormControl('', []),
