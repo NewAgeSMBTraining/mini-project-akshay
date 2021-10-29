@@ -123,6 +123,7 @@ export class EditEmployeeComponent implements OnInit {
         .subscribe((result) => {
           console.log(result);
           this.toster.showSuccess('updated Succesfully')
+          window.location.reload();
 
         });
     }

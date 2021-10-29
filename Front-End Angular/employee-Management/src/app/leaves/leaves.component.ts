@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LeavesService } from '../services/leaves.service';
 import { FormGroup, FormBuilder,Validators, FormControl, NgForm,} from '@angular/forms';
+import { TosterService } from '../services/toster.service';
 
 @Component({
   selector: 'app-leaves',
@@ -11,6 +12,8 @@ export class LeavesComponent implements OnInit {
   LeaveUpdateForm: FormGroup;
   isSubmitted: boolean = false;
   leaveId:any;
+ 
+
   
   public leavesdata:any=[]
 
@@ -76,7 +79,7 @@ export class LeavesComponent implements OnInit {
     }
   };
 
-  constructor(private leavesService:LeavesService, private formBuilder: FormBuilder,) { 
+  constructor(private leavesService:LeavesService, private formBuilder: FormBuilder, private toster:TosterService) { 
     this.LeaveUpdateForm = this.formBuilder.group({
       _id: new FormControl('', []),
       LeaveStatus: new FormControl('', [])
@@ -84,14 +87,10 @@ export class LeavesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.getAllLeavesData()
+  this.getAllLeavesData()
   }
 
 
-
-
-  
   getAllLeavesData(){
     this.leavesdata=[];
     this.leavesService.getAllLeaves().subscribe((res)=>{
@@ -124,6 +123,8 @@ export class LeavesComponent implements OnInit {
         .updateLeaveStatusById(this.LeaveUpdateForm.value)
         .subscribe((result) => {
           console.log(result);
+          this.toster.showSuccess('Status Updated')
+          window.location.reload();
         });
     }
 

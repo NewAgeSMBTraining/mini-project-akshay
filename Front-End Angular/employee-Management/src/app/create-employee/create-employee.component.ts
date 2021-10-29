@@ -68,6 +68,9 @@ export class CreateEmployeeComponent implements OnInit {
       this.employeeService.postEmployee(this.registrationForm.value).subscribe((result)=>{
         console.log(result)
         this.toster.showSuccess('Employee Created Successfully ')
+        window.location.reload();
+
+
 
 
       })

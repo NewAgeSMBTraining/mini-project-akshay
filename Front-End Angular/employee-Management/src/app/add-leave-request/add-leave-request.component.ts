@@ -32,6 +32,7 @@ export class AddLeaveRequestComponent implements OnInit {
     this.LeaveService.postLeave(this.LeaveReqForm.value).subscribe((result)=>{
       console.log(result)
       this.toster.showSuccess('requested Succesfully')
+      window.location.reload();
 
     })
   }
