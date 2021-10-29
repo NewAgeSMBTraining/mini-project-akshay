@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
-
+import { TosterService } from 'src/app/services/toster.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private employee: EmployeeService,
-    private _router:Router
+    private _router:Router,
+    private toster:TosterService
   ) {
     this.LoginForm = this.formBuilder.group({
       email: new FormControl('', []),
@@ -41,8 +42,10 @@ export class LoginComponent implements OnInit {
       if(this.LoginForm.value.email=='ab@ab'){
         localStorage.setItem('email',this.LoginForm.value.email)
         this._router.navigate(['/allemployee/asd']);
+        this.toster.showSuccess('Admin Login success')
       }else{
       this._router.navigate(['/userprofile']);
+      this.toster.showSuccess('User Login success')
 
       }
     });

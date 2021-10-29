@@ -12,7 +12,6 @@ export class AuthService {
 
 
   postEmployee(data: any):Observable<any> {
-    console.log(`im the server`)
     console.log(data);
     return this.http.post('http://localhost:3000/index/login', data);
   }

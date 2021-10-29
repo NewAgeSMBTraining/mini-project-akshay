@@ -7,6 +7,7 @@ import {
   NgForm,
 } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
+import { TosterService } from '../services/toster.service';
 
 @Component({
   selector: 'app-edit-employee',
@@ -30,7 +31,7 @@ export class EditEmployeeComponent implements OnInit {
   empid: any;
   constructor(
     private employeeservice: EmployeeService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,private toster:TosterService
   ) {
     this.EditEmployeeForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required]),
@@ -121,6 +122,8 @@ export class EditEmployeeComponent implements OnInit {
         .updateEmployeeById(this.EditEmployeeForm.value)
         .subscribe((result) => {
           console.log(result);
+          this.toster.showSuccess('updated Succesfully')
+
         });
     }
   }

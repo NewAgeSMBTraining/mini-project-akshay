@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,Validators, FormControl, NgForm,} from '@angular/forms';
 import { LeavesService } from '../services/leaves.service';
+import { TosterService } from '../services/toster.service';
 
 @Component({
   selector: 'app-add-leave-request',
@@ -10,7 +11,9 @@ import { LeavesService } from '../services/leaves.service';
 export class AddLeaveRequestComponent implements OnInit {
   LeaveReqForm: FormGroup;
   isSubmitted: boolean = false;
-  constructor(private formBuilder: FormBuilder,private LeaveService:LeavesService) {
+  constructor(private formBuilder: FormBuilder,
+    private LeaveService:LeavesService,
+    private toster:TosterService) {
     this.LeaveReqForm = this.formBuilder.group({
       subject: new FormControl('', []),
       leaveType: new FormControl('', []),
@@ -28,6 +31,7 @@ export class AddLeaveRequestComponent implements OnInit {
   onLeaveSubmit(){
     this.LeaveService.postLeave(this.LeaveReqForm.value).subscribe((result)=>{
       console.log(result)
+      this.toster.showSuccess('requested Succesfully')
 
     })
   }

@@ -4,6 +4,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { SelectDropDownModule } from 'ngx-select-dropdown'
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -58,6 +59,7 @@ import { LeavesService } from './services/leaves.service';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthGuard,EmployeeService,LeavesService],
   bootstrap: [AppComponent]

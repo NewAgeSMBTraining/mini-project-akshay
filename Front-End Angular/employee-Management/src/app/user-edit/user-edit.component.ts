@@ -7,6 +7,7 @@ import {
   NgForm,
 } from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
+import { TosterService } from '../services/toster.service';
 
 
 @Component({
@@ -31,6 +32,7 @@ export class UserEditComponent implements OnInit {
   empid: any;
   constructor(
     private employeeservice: EmployeeService,
+    private toster:TosterService,
     private formBuilder: FormBuilder
   ) {
     this.EditEmployeeForm = this.formBuilder.group({
@@ -123,6 +125,7 @@ export class UserEditComponent implements OnInit {
         .updateEmployeeById(this.EditEmployeeForm.value)
         .subscribe((result) => {
           console.log(result);
+          this.toster.showSuccess('updated Succesfully')
         });
     }
   }

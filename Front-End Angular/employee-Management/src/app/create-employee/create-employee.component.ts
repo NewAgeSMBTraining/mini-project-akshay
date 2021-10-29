@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,Validators, FormControl, NgForm,} from '@angular/forms';
 import { EmployeeService } from '../services/employee.service';
+import { TosterService } from '../services/toster.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -14,7 +15,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private employeeService:EmployeeService                                        ) {
+    private employeeService:EmployeeService, private toster:TosterService                                        ) {
     this.registrationForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', []),
@@ -66,9 +67,13 @@ export class CreateEmployeeComponent implements OnInit {
     if (this.registrationForm.valid) {
       this.employeeService.postEmployee(this.registrationForm.value).subscribe((result)=>{
         console.log(result)
+        this.toster.showSuccess('Employee Created Successfully ')
+
 
       })
       // console.log('User Registration Form Submit', this.registrationForm.value);
+    }else{
+      this.toster.showError('Employee Not Created')
     }
   };
 
