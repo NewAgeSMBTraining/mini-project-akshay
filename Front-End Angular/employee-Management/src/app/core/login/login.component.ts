@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.logindatas=res;
       localStorage.setItem('token',this.logindatas.token)
       console.log(this.LoginForm.value)
-      if(this.LoginForm.value.email=='ab@ab'){
+      if(this.LoginForm.value.email=='admin@admin.com'){
         // localStorage.setItem('email',this.LoginForm.value.email)
         this._router.navigate(['/allemployee/asd']);
         this.toster.showSuccess('Admin Login success')

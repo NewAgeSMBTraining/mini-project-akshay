@@ -155,7 +155,7 @@ exports.find = (req, res) => {
 
 
 //Update a exsisting Employee
-exports.update = (req, res) => {
+exports.update = async (req, res) => {
     console.log('hello')
     if(!req.body){
         return res
@@ -163,7 +163,11 @@ exports.update = (req, res) => {
         .send({message:"Value Cannot be Null"})
     }
     const id = req.params.id;
-    EmployeeData.findByIdAndUpdate(id,req.body,{useFindAndModify:false})
+    const Body=req.body;
+    console.log(req.body)
+    const hashpassword= await bcrypt.hash(req.body.password,10)
+    Body.password=hashpassword
+    EmployeeData.findByIdAndUpdate(id,Body)
     .then(data=>{
         if(!data){
             res.status(404).send({message:`Cannot Update Employee with ${id}.User Not Found....`})
