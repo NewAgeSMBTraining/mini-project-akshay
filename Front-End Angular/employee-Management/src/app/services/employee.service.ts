@@ -43,6 +43,10 @@ export class EmployeeService {
     return !!localStorage.getItem('token')
   }
 
+
+  deleteEmployee(empid:any){
+    return this.http.delete(`http://localhost:3000/index/api/users/${empid}`,empid)
+  }
   // loggedInAdmin(){
   //   return !!this.adminEmail
 

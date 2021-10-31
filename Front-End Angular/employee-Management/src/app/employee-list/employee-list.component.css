@@ -13,3 +13,22 @@
     font-size: small;
     background-color: rgba(214, 214, 214, 0.322);
 }
+.button{
+    text-align: left;
+    padding: 20px;
+}
+
+.contenttop{
+    height: 100px;
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: rgb(131, 7, 7);
+    font-size: small; 
+}

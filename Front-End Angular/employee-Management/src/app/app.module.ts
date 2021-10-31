@@ -27,6 +27,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { EmployeeService } from './services/employee.service';
 import { LeavesService } from './services/leaves.service';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
@@ -43,6 +44,7 @@ import { LeavesService } from './services/leaves.service';
     UserSidebarComponent,
     UserProfileComponent,
     UserEditComponent,
+    ForgotPasswordComponent,
     
   ],
   imports: [

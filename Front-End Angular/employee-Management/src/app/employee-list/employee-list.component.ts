@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscriber } from 'rxjs';
 import { EmployeeService } from '../services/employee.service';
-
+import { FormGroup, FormBuilder,Validators, FormControl, NgForm,} from '@angular/forms';
+import { TosterService } from '../services/toster.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,6 +12,18 @@ import { EmployeeService } from '../services/employee.service';
 export class EmployeeListComponent implements OnInit {
     // public EmployeeData:any;
     data: any = [];
+    public empdata:any=[]
+    isSubmitted: boolean = false;
+    empid:any
+
+
+    config_emp= {
+      displayKey: 'name',
+      search: true,
+      clearOnSelection: true,
+      placeholder: 'Select Employee',
+      height: '250px',
+    }
 
   settings = {
     columns: {
@@ -59,7 +72,7 @@ export class EmployeeListComponent implements OnInit {
   };
 
 
-  constructor(private employeeService:EmployeeService) { }
+  constructor(private employeeService:EmployeeService,private toster:TosterService) { }
   public EmployeeData:any=[];
  
 
@@ -78,5 +91,20 @@ export class EmployeeListComponent implements OnInit {
     })
 
   }
+
+
+  deleteEmployee(){
+    this.employeeService.deleteEmployee(this.empid).subscribe((res)=>{
+      this.toster.showInfo('Deleted Successfully')
+      window.location.reload()
+    })
+ console.log(this.empid)
+  }
+
+  onChangeemp(e:any){
+    console.log(e.value.name)
+    console.log(e.value._id)
+    this.empid=e.value._id
+  } 
 
 }

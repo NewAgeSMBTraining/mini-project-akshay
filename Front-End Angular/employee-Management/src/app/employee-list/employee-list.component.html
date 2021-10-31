@@ -1,6 +1,28 @@
 <!-- <p>employee-list works!</p> -->
 <app-adminsidebar></app-adminsidebar>
 <!-- <app-user-sidebar></app-user-sidebar> -->
+
+<div>
+    <form  (ngSubmit)="deleteEmployee()">
+<div class="contenttop mat-elevation-z8">
+   
+        <div class="col-4">     
+            <div class="form-group">
+                <label>Leaves Requests<span class="text-danger">*</span></label>
+                <ngx-select-dropdown [config]=" config_emp" [options]="EmployeeData"
+                    (change)="onChangeemp($event)" [multiple]="false" >
+                 </ngx-select-dropdown>
+            </div>
+        </div>
+       
+     <div class="button">
+      <button type="submit" class="btn btn-danger"   >Delete Employee</button>
+    </div>
+</div>
+</form>   
+</div>
+
+
 <div class="content mat-elevation-z8">
     <ng2-smart-table [settings]="settings" [source]="EmployeeData"></ng2-smart-table>
 </div>

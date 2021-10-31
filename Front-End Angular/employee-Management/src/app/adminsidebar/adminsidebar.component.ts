@@ -16,7 +16,9 @@ export class AdminsidebarComponent implements OnInit {
 
   logout(){
     localStorage.clear()
+    // this._router.navigate(['/login'])
     window.location.reload();
+    // this._router.navigate(['/login'])
     
   }
 

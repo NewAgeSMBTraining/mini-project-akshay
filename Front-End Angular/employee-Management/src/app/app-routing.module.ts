@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},
 
   {path :"allleaves",component:LeavesComponent,canActivate:[AuthGuard]},
-  {path:"allemployee/asd",component:EmployeeListComponent,canActivate:[AdminGuard]},
+  {path:"allemployee/asd",component:EmployeeListComponent,canActivate:[AuthGuard]},
   {path:"createEmply",component:CreateEmployeeComponent,canActivate:[AuthGuard]},
   {path:"editemployee",component:EditEmployeeComponent,canActivate:[AuthGuard]},
   {path:"addleave",component:AddLeaveRequestComponent,canActivate:[AuthGuard]},
