@@ -8,6 +8,7 @@ import { AddLeaveRequestComponent } from './add-leave-request/add-leave-request.
 import { LoginComponent } from './core/login/login.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AuthGuard } from './Guard/auth.guard';
 import { AdminGuard } from './Guard/admin.guard';
 
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"userprofile",component:UserProfileComponent,canActivate:[AuthGuard]},
   {path:"useredit",component:UserEditComponent,canActivate:[AuthGuard]},
- 
+  {path:"forgotpassword",component:ForgotPasswordComponent},
+
 ];
 
 @NgModule({
